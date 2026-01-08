@@ -327,9 +327,65 @@ git commit -m "Add: UserService CRUD (Claude 테스트 케이스 통과, Gemini 
 - ❌ "에러 났어요"
 - ✅ "Phase 2-3, UserService 구현 중, 테스트 실패 로그: [전문]"
 
+### 상태 관리 전략 (Gemini 제안 반영) 🆕
+
+**문제**: Sprint 간 컨텍스트 손실
+
+**해결**: `project_status.md` 도입
+
+```markdown
+# 프로젝트 상태 (단일 진실 공급원)
+
+**현재 Phase**: 2-3 (UserService 구현)
+**목표**: REST API CRUD 완성
+**마지막 작업**: Gemini 설계 완료 (2026-01-08 14:00)
+**다음 할 일**: Copilot이 설계를 구현하고 테스트
+
+## 핵심 산출물
+- [Claude] 계획서: docs/plan.md
+- [Gemini] 설계: docs/design.md
+- [Copilot] 구현: src/services/UserService.ts (50% 완료)
+
+## 주요 변경점 (최근 3일)
+- Day 1: 계획 수립 (Claude)
+- Day 2: 아키텍처 설계 (Gemini)
+- Day 3: CRUD 중 Create/Read 완료 (Copilot)
+
+## Git 참조
+- 마지막 커밋: abc123 "Add: UserService Create/Read"
+- 브랜치: feature/user-service
+```
+
+**활용법**:
+1. 각 Agent 작업 종료 시 이 파일 업데이트
+2. 다음 Agent 호출 시 이 파일을 컨텍스트로 함께 전달
+3. 컨텍스트 손실 최소화 + 운영자 부담 감소
+
+### 품질 게이트 체크리스트 (Gemini 제안 반영) 🆕
+
+**목적**: "Garbage In, Garbage Out" 방지
+
+**Gemini 설계 → Copilot 구현 전**:
+```
+[ ] 데이터 모델과 API 인터페이스 명확히 정의됨
+[ ] 테스트 전략 및 커버리지 목표 명시됨
+[ ] 복잡한 로직에 대한 의사코드 제공됨
+[ ] 성능/보안 요구사항 문서화됨
+```
+
+**Copilot 구현 → Claude 문서화 전**:
+```
+[ ] 모든 테스트 통과 (get_errors로 확인)
+[ ] Git 커밋 히스토리 정리됨
+[ ] API 변경사항 요약 작성됨
+[ ] 주요 버그 픽스 내역 정리됨
+```
+
+**효과**: 각 단계 품질 보장 + 전체 워크플로우 안정성 향상
+
 ---
 
 **작성자**: Copilot  
 **최초 작성**: 2026-01-08 (Claude 분석에 대한 반박)  
-**최종 업데이트**: 2026-01-08 (실무 팁 추가)  
+**최종 업데이트**: 2026-01-08 (Gemini 상태관리/품질게이트 반영)  
 **근거**: 실전 데이터 + 다각도 전문가 검증 + 15회 이상 실제 작업 경험
