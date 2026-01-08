@@ -311,10 +311,5 @@ Sprint 1 → Review → Sprint 2 → Review → ... → Sprint N
 *   Copilot 검증 → 버그 발견 및 수정
 *   협업 시 예상 완성도: 95%
 
-**교훈**: 계획은 Claude, 검증은 Copilot, 설계는 Gemini가 최적
 
 ---
-
-**개정 일자**: 2026-01-08  
-**개정 근거**: [Copilot 전문가 리뷰](copilot-opinion-agent-workflow.md) 반영  
-**검증 프로젝트**: Cyan HD FPGA (실전 데이터 기반)
